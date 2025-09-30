@@ -1,0 +1,61 @@
+<div class="unsubscribe-container">
+     <div class="container">
+        <div class="heading">Unsubscribing Basics</div>
+        <p>It is important to prevent memory leaks. Because everything we subscribe gets stored in our local memory.</p>
+    </div>
+
+    <!-- Way 1 -->
+    <div class="container">
+        <div class="heading">Way 1: Single Subscription</div>
+        <p>
+            When there is only <strong>one subscription</strong>, store it in a single
+            <code>Subscription</code> object and call <code>unsubscribe()</code> inside
+            <code>ngOnDestroy()</code>.
+        </p>
+    </div>
+
+    <!-- Way 2 -->
+    <div class="container">
+        <div class="heading">Way 2: Multiple Subscriptions</div>
+        <p>
+            For <strong>multiple subscriptions</strong>, push them into an array of
+            <code>Subscription[]</code>. On destroy, iterate over the array and unsubscribe all.
+        </p>
+    </div>
+
+    <!-- Way 3 -->
+    <div class="container">
+        <div class="heading">Way 3: Using takeUntil</div>
+        <p>
+            Create a <code>Subject</code> (e.g. <code>subTakeUntil</code>) and use it with
+            <code>takeUntil()</code> in the pipe. When the component is destroyed, call
+            <code>next()</code> on the subject to complete all active subscriptions.
+        </p>
+    </div>
+
+    <!-- Way 4 -->
+    <div class="container">
+        <div class="heading">Way 4: Using take</div>
+        <p>
+            Use the <code>take(n)</code> operator to automatically complete the subscription after
+            receiving <strong>n values</strong>. This prevents memory leaks without manual
+            unsubscription.
+        </p>
+    </div>
+
+    <!-- Way 5 -->
+    <div class="container">
+        <div class="heading">Way 5: Using Async Pipe</div>
+        <p>
+            Bind the observable directly to the template with the
+            <code>async</code> pipe. Angular automatically subscribes and unsubscribes when the
+            component is destroyed.</p>
+            <p>output on the code</p>
+            <ul>
+            @for (item of userList$|async; track $index) {
+                <li>{{item.username}}</li>
+            }
+        </ul>
+        
+    </div>
+</div>

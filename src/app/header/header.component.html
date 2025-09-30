@@ -1,0 +1,46 @@
+<div class="header-container">
+  <div class="header-logo">
+    <div class="header-nav">
+      <a routerLink="/home">HOME</a>
+      <a routerLink="/rxjs">RXJS</a>
+      <a routerLink="/subject">SUBJECT</a>
+      <a routerLink="/template-form">TEMPLATE FORM</a>
+      <a routerLink="/reactive-form">REACTIVE FORM</a>
+      <a routerLink="/subservice">SUBSCRIBE SERVICES</a>
+      <a routerLink="/admin">ADMIN SERVICES</a>
+      <a routerLink="/unsubscribe">UNSUBSCRIBE</a>
+      <a routerLink="/signal">SIGNALS</a>
+      <a routerLink="/join-map">Joins/Map Obv</a>
+      <a routerLink="/interceptors">INTERCEPTORS</a>
+
+      <!-- <a href="home" (click)="HomeClicked()">HOME</a>
+            <a href="rxjs" (click)="rxjsClicked()">RXJS</a>
+            <a href="subject" (click)="subjectClicked()">SUBJECT</a>
+            <a href="template-form" (click)="FormValidationClicked()">TEMPLATE FORM</a>
+            <a href="reactive-form" (click)="reactiveFormClicked()">REACTIVE FORM</a>   
+            <a href="subservice" (click)="ServiceClicked()">SUBSCRIBE SERVICES</a>
+            <a href="admin" (click)="AdminClicked()">ADMIN SERVICES</a>
+            <a href="unsubscribe" (click)="unsubscribeClicked()">UNSUBSCRIBE </a> 
+            <a href="signal" (click)="signalClicked()">SIGNALS</a>
+            <a href="join-map" (click)="mapjoinClicked()">Joins/Map Obv</a>
+            <a href="interceptors" (click)="interceptorClicked()">INTERCEPTORS</a> -->
+    </div>
+    <button class="header-button" (click)="OnSubscribe()">SUBSCRIBE</button>
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <!-- <div [ngSwitch]="selectedTab">
+        <app-home *ngSwitchCase="'home'"></app-home>
+        <app-service *ngSwitchCase="'service'"></app-service>
+        <app-admin *ngSwitchCase="'admin'"></app-admin>
+        <app-formvalidation *ngSwitchCase="'formv'"></app-formvalidation>
+        <app-reactiveforms *ngSwitchCase="'reactive'"></app-reactiveforms>
+        <app-signals *ngSwitchCase="'signals'"></app-signals>
+        <app-rxjs *ngSwitchCase="'rxjs'"></app-rxjs>
+        <app-subject-behaviour *ngSwitchCase="'subjectBehaviour'"></app-subject-behaviour>
+        <app-joins-map-obv *ngSwitchCase="'join-map'"></app-joins-map-obv>
+        <app-unsubscribe *ngSwitchCase="'unsubscribe'"></app-unsubscribe>
+        <app-interceptors *ngSwitchCase="'interceptor'"></app-interceptors>
+    </div> -->
+</div>

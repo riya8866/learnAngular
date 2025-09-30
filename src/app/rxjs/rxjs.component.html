@@ -1,0 +1,34 @@
+ <div class="rxjs-container">
+    <div class="container">
+      <div class="heading">Rxjs Basics</div>
+      <p>RXJS stands for Reactive Extension for Javascript.</p>
+      <p>RXJS is an external library for reactive programming.</p>
+      <p>It is a way to handle asynchronous operations, events and data streams.</p>
+      <p>It is heavily used in Angular's core features (like HttpClient, FormControl.valueChanges, and routing) all use Observables under the hood.</p>
+    </div>
+
+    <div class="container">
+      <div class="heading">Why RxJS in Angular?</div>
+      <p><strong>Working with HTTP:</strong>Working with HTTP: All HttpClient methods return Observables</p>
+      <p><strong>Form input tracking:</strong> valueChanges returns an Observable</p>
+      <p><strong>Route parameters:</strong> ActivatedRoute.paramMap is an Observable</p>
+      <p><strong>State management:</strong> RxJS is the foundation of libraries like NgRx</p>
+      <p><strong>Building responsive UIs:</strong> You can react to user inputs, data changes, and server responses easily using RxJS.</p>
+    </div>
+
+    <div class="container">
+      <div class="heading">Observables</div>
+      <p>Observable does not emit by itself; you have to use next() to emit.</p>
+      <p>Observables can emit multiple values over time.</p>
+      <p>They can complete, error out, or keep streaming.</p>
+      <p>We need to subscribe to start receiving values.</p>
+      <h2>Creating and Subscribing to Observables</h2>
+      <p>Of, From, interval, timer, fromEvent</p>
+      <p>new Observable</p>
+    </div>
+
+    <div class="container">
+      <div class="heading">Reactive form: search control--valueChanges</div>
+      <input type="text" placeholder="search" [formControl]="searchControl">
+    </div>
+  </div>

@@ -1,0 +1,59 @@
+<div class="subject-behaviour">
+    <div class="container">
+        <div class="heading">Subject Basics</div>
+        <p>Subject is just the wrapper created around observables</p>
+    </div>
+
+
+    <div class="container">
+        <div class="heading">Behaviour Subject</div>
+        <form class="form-container">
+            <select name="" id="" (change)="onRoleChanged($event)">
+                <option value="Guest" >Guest</option>
+                <option value="Admin" >Admin</option>
+                <option value="Super Admin" >Super Admin</option>
+            </select>
+        </form>
+
+    </div>
+
+    <div class="container">
+        <div class="heading">Caching with Behaviour Subject</div>
+        
+    <input type="text" [(ngModel)]="userId" placeholder="Enter Id">
+    <button (click)="getUser()">Get Data</button>
+</div>
+
+<div class="container">
+  <div class="heading">Difference between Subject and BehaviorSubject</div>
+
+  <h2>1. Initialization</h2>
+  <p><strong>Subject:</strong> Cannot initialize with a default value.</p>
+  <p><strong>BehaviorSubject:</strong> Can initialize with a default value.</p>
+
+  <h2>2. Emission Behavior</h2>
+  <p><strong>Subject:</strong> Emits values only to subscribers that are active at the time of emission.  
+     If you subscribe after a value was emitted, you won’t get the old value.</p>
+  <p><strong>BehaviorSubject:</strong> Always emits the latest value to new subscribers immediately, even if they subscribed after the value was emitted. It “remembers” the last emitted value.</p>
+
+  <h2>3. Use Case</h2>
+  <p><strong>Subject:</strong> Best when you only care about real-time events.  
+     Example: button clicks, WebSocket messages.</p>
+  <p><strong>BehaviorSubject:</strong> Best when you need the current state + future updates.  
+     Example: user role, authentication status, theme selection.</p>
+
+  <h2>4. Practical Example</h2>
+  <p>In the transcript, the role dropdown value was stored in both Subject and BehaviorSubject.</p>
+  <p><strong>Subject:</strong> The new component did not get the previously emitted role because it wasn’t subscribed at the time.</p>
+  <p><strong>BehaviorSubject:</strong> The new component got the last stored role immediately, even though it subscribed later.</p>
+
+  <h2>5. Most Important</h2>
+  <p><strong>Subject:</strong> Does not store previous values. Subscribers only get what is emitted after they subscribe.</p>
+  <p><strong>BehaviorSubject:</strong> Stores the latest value and gives it instantly to any new subscriber, along with future values.</p>
+</div>
+</div>
+
+ 
+
+
+

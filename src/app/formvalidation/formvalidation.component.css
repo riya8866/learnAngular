@@ -1,0 +1,54 @@
+.form-container{
+    margin-left: 8px;
+  margin-right: 8px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.terms-checkbox {
+  margin: 1rem 0;
+  display: block;
+}
+
+mat-form-field.name {
+  flex: 1 1 calc(50% - 1rem);
+  min-width: 200px;
+}
+
+@media (max-width: 600px) {
+  mat-form-field.name {
+    flex: 1 1 100%;
+  }
+}
+
+.mat-form-field label {
+  color: #000; /* Ensure label color is visible */
+  font-weight: 500; /* Optional: make the label text slightly bolder */
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: #1976d2; /* Optional: change label color when input is focused */
+}
+
+.mat-form-field .mat-form-field-label {
+  top: -10px; /* Move the label up if it's overlapping with input */
+}
+
+/* Ensure that error messages are not blocking the label */
+.mat-form-field .mat-error {
+  color: red;
+}
+
+/* Styling for input fields */
+mat-form-field input {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+

@@ -1,0 +1,85 @@
+/* --- Form Container --- */
+.form-container {
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: #fff;
+  max-width: 800px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Form Layout --- */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+  justify-content: space-between;
+  margin: 0 8px;
+}
+
+/* --- Form Fields (Two-column layout) --- */
+mat-form-field.name {
+  flex: 1 1 calc(50% - 0.5rem);
+  min-width: 250px;
+}
+
+/* --- Responsive: Stack fields on smaller screens --- */
+@media (max-width: 600px) {
+  mat-form-field.name {
+    flex: 1 1 100%;
+  }
+}
+
+/* --- Checkbox Styling --- */
+.terms-checkbox {
+  display: block;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+/* --- Label Styling --- */
+.mat-form-field label,
+.mat-form-field .mat-form-field-label {
+  color: #000;
+  font-weight: 500;
+}
+
+/* --- Focused Label Styling --- */
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: #1976d2;
+}
+
+/* --- Input Styling --- */
+mat-form-field input {
+  padding: 0.3rem;
+  font-size: 1rem;
+}
+
+/* --- Error Message Styling --- */
+mat-error,
+.mat-form-field .mat-error {
+  font-size: 13px;
+  color: #f44336;
+  margin-top: 4px;
+}
+
+/* --- Submit Button --- */
+button[type="submit"] {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #1976d2;
+  color: #fff;
+}
+
+/* Optional Hover Effect */
+button[type="submit"]:hover {
+  background-color: #1565c0;
+}
+
+button[disabled] {
+  background-color: #b0b0b0 !important; 
+  color: #000000 !important;               
+  cursor: not-allowed;
+}

@@ -1,0 +1,65 @@
+<div class="form-container">
+    <form #form="ngForm" (ngSubmit)="submit(form)" novalidate>
+
+  <mat-form-field class="name" appearance="fill" >
+    <mat-label>First Name</mat-label>
+    <input matInput placeholder="First Name" #firstName='ngModel' pattern="^[a-zA-Z\s]{3,}$" minlength="3" name='first' [(ngModel)]="user.first" required/>
+    <mat-error *ngIf="firstName.invalid && (firstName.touched || firstName.dirty)">
+      <span *ngIf="firstName.errors?.['required']">First Name is required</span>
+      <span *ngIf="firstName.errors?.['pattern']">Only letters allowed, minimum 3 characters</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="name" appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="Last Name" pattern="^[a-zA-Z\s]{3,}$" #lastName="ngModel" name='last' [(ngModel)]="user.last" minlength="3" required/>
+    <mat-error *ngIf="lastName.invalid && (lastName.touched || lastName.dirty)">
+      <span *ngIf="lastName.errors?.['required']">Last Name is required</span>
+      <span *ngIf="lastName.errors?.['pattern']">Only letters and spaces allowed, minimum 3 characters</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="name" appearance="fill">
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Username" #userName="ngModel" name='username' [(ngModel)]="user.username" pattern="^[a-zA-Z0-9_,]{4,15}$" required/>
+    <mat-error *ngIf="userName.invalid && (userName.touched || userName.dirty)">
+      <span *ngIf="userName.errors?.['required']">Username is required</span>
+      <span *ngIf="userName.errors?.['pattern']">Only letters, numbers, underscores (_) and commas (,) allowed. 4-15 characters.</span>     
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="name" appearance="fill">
+    <mat-label>City</mat-label>
+    <input matInput placeholder="City" pattern="^[a-zA-Z\s]{3,}$" #city='ngModel' minlength="3" name='city' [(ngModel)]="user.city" required/>
+    <mat-error *ngIf="city.invalid && (city.touched || city.dirty)">
+      <span *ngIf="city.errors?.['required']">City is required</span>
+      <span *ngIf="city.errors?.['pattern']">Only letters and spaces allowed, minimum 3 characters</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="name" appearance="fill">
+    <mat-label>State</mat-label>
+    <input matInput placeholder="State" pattern="^[a-zA-Z\s]{3,}$" #state='ngModel' minlength="3" name='state' [(ngModel)]="user.state" required/>
+    <mat-error *ngIf="state.invalid && (state.touched || state.dirty)">
+     <span *ngIf="state.errors?.['required']">State is required</span>
+      <span *ngIf="state.errors?.['pattern']">Only letters and spaces allowed, minimum 3 characters</span>
+      </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="name" appearance="fill">
+    <mat-label>Zip</mat-label>
+    <input matInput placeholder="Zip Code" #zip="ngModel" name='zip' [(ngModel)]="user.zip" pattern="^[0-9]{6}$" required/>
+    <mat-error *ngIf="zip.invalid && (zip.touched || zip.dirty)">
+      <span *ngIf="zip.errors?.['required']">Zip Code is required</span>
+      <span *ngIf="zip.errors?.['pattern']">Zip Code should be of 6 digits</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-checkbox class="terms-checkbox" [(ngModel)]="user.terms" name="terms" required>
+    I accept the terms and conditions
+    <mat-error *ngIf="form.submitted && !user.terms">Agree to terms and conditions</mat-error>
+  </mat-checkbox>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,51 @@
+<div class="join-map">
+
+  <div class="container">
+    <div class="heading">forkJoin</div>
+    <p>Runs multiple observables in parallel</p>
+    <p>Emits only once when all observables complete successfully</p>
+    <p>If any observable fails → error block is called</p>
+  </div>
+
+  <div class="container">
+    <div class="heading">switchMap</div>
+    <p>Cancels previous API call when a new one is triggered</p>
+    <p>Keeps only the latest request result</p>
+    <p>Best for live search boxes</p>
+    <br>
+    <input type="text" [formControl]="searchControl" placeholder="Search">
+  </div>
+
+  <div class="container">
+    <div class="heading">mergeMap</div>
+    <p>Runs inner observables in parallel</p>
+    <p>All results are returned (no cancellation)</p>
+    <p>Good for nested/parallel API calls</p>
+    <p>Takes all successful (positive) calls and ignores failed calls</p>
+  </div>
+
+  <div class="container">
+    <div class="heading">concatMap</div>
+    <p>Executes observables one after another (sequentially)</p>
+    <p>Ensures order is maintained (waits for one to finish before next starts)</p>
+  </div>
+
+  <div class="container">
+    <div class="heading">exhaustMap</div>
+    <p>Ignores new emissions while the current observable is still running</p>
+    <p>Prevents duplicate calls (e.g., multiple login clicks)</p>
+    <p>Waits until current request completes before accepting new ones</p>
+    <br>
+    <button (click)="onBtnClicked()">Login</button>
+  </div>
+
+  <div class="container">
+    <div class="heading">Summary</div>
+    <p><strong>forkJoin</strong> → all together, emit once</p>
+    <p><strong>switchMap</strong> → latest only (cancels old)</p>
+    <p><strong>mergeMap</strong> → parallel, returns all successful calls, ignores failed ones</p>
+    <p><strong>concatMap</strong> → sequential, ordered</p>
+    <p><strong>exhaustMap</strong> → ignores new until current completes</p>
+  </div>
+
+</div>

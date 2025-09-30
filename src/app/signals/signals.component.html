@@ -1,0 +1,191 @@
+
+<div class="signal-container1">
+<div class="container">
+<div class="heading">Signal Basics</div>
+
+<p>{{'Accessing signal:'+courseName()}}</p>
+
+<div class="signal-container">
+    <button (click)="changeCourseName()">Course Name</button>
+</div>
+
+<p>{{'Accessing signal array:'+cityList()}}</p>
+
+<div class="signal-container">
+    <button (click)="changeCityList()">City List</button>
+</div>
+
+<p>{{'Accessing signal array:'+(studentObj()|json)}}</p>
+
+<div class="signal-container">
+    <button (click)="changeStudentObj()">City List</button>
+</div>
+<br/>
+<div class="city">
+    <form>
+        <label>Enter City</label>
+        <input name="city" [(ngModel)]="cityName" >
+        <button (click)="addCity()">Add City</button><span>{{'City List:'+cityList()}}</span>
+    </form>
+</div>
+</div>
+<div class="container">
+<!-- signal form -->
+ <div class="heading">Signal Form</div>
+<div class="form-container">
+<form #form="ngForm" (ngSubmit)="submit(form)" novalidate>
+    {{employeeObj()|json}}
+  <mat-form-field appearance="fill">
+    <mat-label>Employee ID</mat-label>
+    <input matInput
+           name="empId"
+           (input)="changeFormValue('empId',$event)"
+           [(ngModel)]="employeeData.empId"
+           #empId="ngModel"
+           type="number"
+           required
+           autocomplete="off" />
+    <mat-error *ngIf="empId.invalid && (empId.touched || empId.dirty)">
+      <span *ngIf="empId.errors?.['required']">Employee ID is required</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Employee Name</mat-label>
+    <input matInput
+           name="empName"
+           (input)="changeFormValue('empName',$event)"
+           [(ngModel)]="employeeData.empName"
+           #empName="ngModel"
+           required
+           minlength="3"
+           autocomplete="off" />
+    <mat-error *ngIf="empName.invalid && (empName.touched || empName.dirty)">
+      <span *ngIf="empName.errors?.['required']">Employee Name is required</span>
+      <span *ngIf="empName.errors?.['minlength']">Minimum 3 characters required</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Employee City</mat-label>
+    <input matInput
+           name="empCity"
+           [(ngModel)]="employeeData.empCity"
+           (input)="changeFormValue('empCity',$event)"
+           #empCity="ngModel"
+           required
+           minlength="3"
+           autocomplete="off" />
+    <mat-error *ngIf="empCity.invalid && (empCity.touched || empCity.dirty)">
+      <span *ngIf="empCity.errors?.['required']">City is required</span>
+      <span *ngIf="empCity.errors?.['minlength']">Minimum 3 characters required</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Employee State</mat-label>
+    <input matInput
+           name="empState"
+           [(ngModel)]="employeeData.empState"
+           (input)="changeFormValue('empState',$event)"
+           #empState="ngModel"
+           required
+           minlength="3"
+           autocomplete="off" />
+    <mat-error *ngIf="empState.invalid && (empState.touched || empState.dirty)">
+      <span *ngIf="empState.errors?.['required']">State is required</span>
+      <span *ngIf="empState.errors?.['minlength']">Minimum 3 characters required</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Employee Pincode</mat-label>
+    <input matInput
+           name="empPincode"
+           [(ngModel)]="employeeData.empPincode"
+           (input)="changeFormValue('empPincode',$event)"
+           #empPincode="ngModel"
+           required
+           pattern="^[0-9]{6}$"
+           autocomplete="off" />
+    <mat-error *ngIf="empPincode.invalid && (empPincode.touched || empPincode.dirty)">
+      <span *ngIf="empPincode.errors?.['required']">Pincode is required</span>
+      <span *ngIf="empPincode.errors?.['pattern']">Pincode must be exactly 6 digits</span>
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+</form>
+</div>
+</div>
+<div class="container">
+<!-- computed signal -->
+ <div class="heading">Computed Signal</div>
+<form #form="ngForm" (ngSubmit)="submit(form)" novalidate>
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input matInput
+           name="firstName"
+           [(ngModel)]="fName"
+           #firstName="ngModel"
+           required
+           minlength="1"
+           (input)="changeFName($event)"
+           autocomplete="off" />
+    <mat-error *ngIf="firstName.invalid && (firstName.touched || firstName.dirty)">
+      First Name is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Middle Name</mat-label>
+    <input matInput
+           name="middleName"
+           [(ngModel)]="mName"
+           (input)="changeMName($event)"
+           autocomplete="off" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input matInput
+           name="lastName"
+           [(ngModel)]="lName"
+           #lastName="ngModel"
+           (input)="changeLName($event)"
+           required
+           minlength="1"
+           autocomplete="off" />
+    <mat-error *ngIf="lastName.invalid && (lastName.touched || lastName.dirty)">
+      Last Name is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Full Name</mat-label>
+    <input matInput [value]="fullName()" readonly />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
+</form>
+ </div>
+<div class="container">
+<!-- Input and Output in signal -->
+ <div class="heading">Input and Output in signal</div>
+ <div class="signal">
+    <app-alert [alertTitle]="'Hi From Input'"></app-alert>
+    <!-- output signal in alert.ts -->
+ </div>
+ </div>
+<div class="container">
+<!-- View Child signal -->
+ <div class="heading">ViewChild signal</div>
+ <div class="city">
+    <form>
+        <label>Enter City</label>
+        <input name="city" #cityNameText [(ngModel)]="cityName" >
+        <button (click)="addCity()">Add City</button><span>{{'City List:'+cityList()}}</span>
+    </form>
+</div>
+</div>
+</div>

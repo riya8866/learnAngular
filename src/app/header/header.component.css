@@ -1,0 +1,41 @@
+.header-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* gap: 1rem; */
+  
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem; /* spacing between links only */
+  flex-wrap: wrap;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;       
+  font-size: 0.85rem;   
+  transition: color 0.3s ease;
+  cursor: pointer;
+
+  white-space: normal;     /* allow wrapping */
+  max-width: 70px;         /* narrower max width */
+  display: inline-block;
+  line-height: 1.2;        /* tighter vertical spacing */
+  letter-spacing: 0.3px;   /* slightly compacted look */
+}
+
+.header-nav a:hover {
+  color: #007acc;
+}
+
+.header-button {
+  margin-left: auto; /* push button to right */
+  padding: 8px 16px;
+  line-height: 1.2; 
+}
+
+.header-button:hover {
+  background-color: #003785;
+}
