@@ -156,13 +156,14 @@ export class ReactiveformsComponent implements OnInit {
     });
 
      
-
   // Watch confirmPassword changes
   this.userForm.controls['confirmPassword'].valueChanges.subscribe(() => {
     // Re-run group validator
     this.userForm.updateValueAndValidity({ onlySelf: false, emitEvent: false });
   });
-    
+  
+  
+
 //debounce search==>wait for user to type then call api
   this.searches.controls['searchControl'].valueChanges.pipe(
     debounceTime(1000)           //giving user 1 second to type
